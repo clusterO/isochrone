@@ -10,7 +10,7 @@ from geopy.geocoders import Nominatim
 
 
 def geo_coding(address=''):
-    geolocator = Nominatim()
+    geolocator = Nominatim(user_agent="isochrone")
     location = geolocator.geocode(address)
     return [location.latitude, location.longitude]
 
@@ -204,8 +204,8 @@ def generate_isochrone_map(origin='', duration=60, nbr_of_angles=12, tolerance=0
     </html>
     """
 
-    with open('isochrone_v2_cercle.html', 'w') as text:
+    with open('isochrone_v2_circle.html', 'w') as text:
         text.write(htmltext)
 
 
-generate_isochrone_map('anfa casablanca', 60, 12, 0.1)
+generate_isochrone_map('Anfa Casablanca', 60, 12, 0.1)
